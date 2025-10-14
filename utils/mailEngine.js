@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
-import { jobMailTemplate } from "../templates/jobMail";
+import { jobMailTemplate } from "../templates/jobMail.js";
+import path from "path";
 
 export const sendEmail = async (
   to,
@@ -8,13 +9,17 @@ export const sendEmail = async (
   role,
   skills,
   customMessage,
-  portfolioLink,
   applicantName,
   applicantRole,
   applicantEmail,
-  year
+  applicantPhone,
+  companyName
 ) => {
   try {
+    const resumePath = path.resolve(
+      "uploads/Vaishnav_SN-MERN-Stack-SDE_Resume.pdf"
+    );
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -29,11 +34,11 @@ export const sendEmail = async (
       role,
       skills,
       customMessage,
-      portfolioLink,
       applicantName,
       applicantRole,
       applicantEmail,
-      year
+      applicantPhone,
+      companyName
     );
 
     const mailOptions = {
@@ -44,7 +49,7 @@ export const sendEmail = async (
       attachments: [
         {
           filename: "Vaishnav_SN-MERN_DEV_Resume.pdf",
-          path: "../uploads/Vaishnav_SN-MERN-Stack-SDE_Resume.pdf",
+          path: resumePath,
         },
       ],
     };
