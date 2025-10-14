@@ -1,0 +1,18 @@
+{
+  "name": "email-system",
+  "version": "1.0.0",
+  "description": "a system to send email to employers for job applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "vaishnav sn",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "type": "module"
+}
